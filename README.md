@@ -1,60 +1,44 @@
-# EasyEnglishAngular
+# Easy English Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.3.
+Project frontend Angular cho Easy English.
 
-## Development server
+## Yêu cầu
 
-To start a local development server, run:
+- Node.js
+- npm
 
-```bash
-ng serve
-```
+## Cài đặt
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Chạy lệnh sau để cài các package:
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Chạy project
+
+Chạy server local:
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+Sau khi chạy thành công, mở trình duyệt tại:
 
-To build the project run:
+```text
+http://localhost:4200
+```
+
+## Build
 
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+File build sẽ nằm trong thư mục `dist/`.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Test
 
 ```bash
-ng test
+npm test
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-# easy-english-angular
