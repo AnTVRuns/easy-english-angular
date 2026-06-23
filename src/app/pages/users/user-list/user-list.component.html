@@ -1,0 +1,101 @@
+<section class="grid gap-6">
+  <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <h1 class="text-3xl font-semibold text-slate-900">User list</h1>
+      <p class="mt-2 text-sm text-slate-600">Browse, filter, and manage users in the admin panel.</p>
+    </div>
+    <button
+      type="button"
+      class="rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+      (click)="navigateTo('/')"
+    >
+      Back to dashboard
+    </button>
+  </div>
+
+  <div class="grid gap-4 lg:grid-cols-3">
+    <input
+      #nameInput
+      type="text"
+      placeholder="Search by full name"
+      [value]="filters().fullName"
+      (input)="updateFilter('fullName', nameInput.value)"
+      class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+    />
+
+    <select
+      #roleSelect
+      [value]="filters().role"
+      (change)="updateFilter('role', roleSelect.value)"
+      class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+    >
+      <option value="">All roles</option>
+      <option value="Admin">Admin</option>
+      <option value="Teacher">Teacher</option>
+      <option value="Student">Student</option>
+    </select>
+
+    <select
+      #genderSelect
+      [value]="filters().gender"
+      (change)="updateFilter('gender', genderSelect.value)"
+      class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+    >
+      <option value="">All genders</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+  <div class="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-sm">
+    <table class="min-w-full border-collapse text-sm text-slate-900">
+      <thead class="bg-slate-50 text-left text-xs uppercase tracking-[0.16em] text-slate-500">
+        <tr>
+          <th class="px-5 py-4">Avatar</th>
+          <th class="px-5 py-4">Username</th>
+          <th class="px-5 py-4">Full name</th>
+          <th class="px-5 py-4">Email</th>
+          <th class="px-5 py-4">Phone</th>
+          <th class="px-5 py-4">Role</th>
+          <th class="px-5 py-4">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of visibleUsers" class="border-b border-slate-200 hover:bg-slate-50">
+          <td class="px-5 py-4">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-sm font-semibold text-white">
+              {{ user.initials }}
+            </span>
+          </td>
+          <td class="px-5 py-4">{{ user.username }}</td>
+          <td class="px-5 py-4">{{ user.fullName }}</td>
+          <td class="px-5 py-4">{{ user.email }}</td>
+          <td class="px-5 py-4">{{ user.phone }}</td>
+          <td class="px-5 py-4">{{ user.role }}</td>
+          <td class="px-5 py-4">{{ user.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="flex flex-col gap-3 rounded-2xl bg-slate-50 p-4 sm:flex-row sm:items-center sm:justify-between">
+    <button
+      type="button"
+      [disabled]="pagination().currentPage === 1"
+      (click)="setPage(pagination().currentPage - 1)"
+      class="rounded-2xl bg-slate-200 px-4 py-3 text-sm font-semibold text-slate-800 transition hover:bg-slate-300 disabled:cursor-not-allowed disabled:opacity-50"
+    >
+      Previous
+    </button>
+    <span class="text-sm text-slate-600">Page {{ pagination().currentPage }} of {{ totalPages() }}</span>
+    <button
+      type="button"
+      [disabled]="pagination().currentPage === totalPages()"
+      (click)="setPage(pagination().currentPage + 1)"
+      class="rounded-2xl bg-slate-200 px-4 py-3 text-sm font-semibold text-slate-800 transition hover:bg-slate-300 disabled:cursor-not-allowed disabled:opacity-50"
+    >
+      Next
+    </button>
+  </div>
+</section>
