@@ -3,28 +3,24 @@
     <div class="flex items-center gap-3">
       <button
         class="rounded-2xl border border-slate-200 bg-slate-100 px-3 py-2 text-lg text-slate-700 transition hover:bg-slate-200 md:hidden"
-        type="button"
-        aria-label="Toggle menu"
-        (click)="toggleSidebar.emit()"
-      >
+        type="button" aria-label="Toggle menu" (click)="toggleSidebar.emit()">
         ☰
       </button>
-      <div class="cursor-pointer text-lg font-semibold uppercase tracking-[0.24em] text-slate-900" (click)="navigateTo('/')">
+      <div class="cursor-pointer text-lg font-semibold uppercase tracking-[0.24em] text-slate-900"
+        (click)="navigateTo('/')">
         easy english
       </div>
     </div>
 
     <nav class="flex flex-wrap items-center gap-4 text-sm font-semibold text-slate-600">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="transition hover:text-slate-900">Dashboard</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+        class="transition hover:text-slate-900">Dashboard</a>
       <a routerLink="/users" routerLinkActive="active" class="transition hover:text-slate-900">Users</a>
     </nav>
 
     <div>
-      <button
-        class="rounded-2xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700"
-        type="button"
-        (click)="navigateTo('/users')"
-      >
+      <button class="rounded-2xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700"
+        type="button" (click)="navigateTo('/users')">
         Go to users
       </button>
     </div>
